@@ -15,6 +15,7 @@ class Dashboard extends Controller
     {
         $title = 'Dashboard';
         return view('dashboard.main', compact('title'));
+
     }
 
     /**
