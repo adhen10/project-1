@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class RenameBarangTableToItemTable extends Migration
+class AddColumnToTableUsers extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,9 @@ class RenameBarangTableToItemTable extends Migration
      */
     public function up()
     {
-        Schema::rename('barang', 'item');
+        Schema::table('users', function (Blueprint $table) {
+            $table->enum('role', ['1', '2', '3']) ->default('1') ->notNullable();
+        });
     }
 
     /**
@@ -23,7 +25,7 @@ class RenameBarangTableToItemTable extends Migration
      */
     public function down()
     {
-        Schema::table('item', function (Blueprint $table) {
+        Schema::table('users', function (Blueprint $table) {
             //
         });
     }
