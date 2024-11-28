@@ -15,6 +15,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [AuthController::class, 'index']) -> name('login');
-Route::post('/', [AuthController::class, 'login']) -> name('login');
-Route::get('/dashboard', [Dashboard::class, 'index'])->name('dashboard');
+Route::middleware(['guest'])->group(function () {
+	Route::get('/', [AuthController::class, 'index'])->name('login');
+	Route::post('/', [AuthController::class, 'login'])->name('login');
+});
+
+Route::get('/home', function () {
+	return redirect()->route('dashboard');
+});
+
+Route::middleware(['auth'])->group(function () {
+	Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
+	Route::get('/dashboard', [Dashboard::class, 'index'])->name('dashboard');
+});

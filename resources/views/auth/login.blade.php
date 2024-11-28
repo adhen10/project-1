@@ -94,14 +94,7 @@ License: For each use you must have a valid license purchased only from above li
                                             </div>
                                             <div>
                                                 <button type="submit" class="btn btn-primary me-2">Login</button>
-                                                <button type="button"
-                                                    class="btn btn-outline-primary btn-icon-text mb-2 mb-md-0">
-                                                    <i class="btn-icon-prepend" data-feather="twitter"></i>
-                                                    Login with twitter
-                                                </button>
                                             </div>
-                                            <a href="#" class="d-block mt-3 text-muted">Not a user? Sign
-                                                up</a>
                                         </form>
                                     </div>
                                 </div>
